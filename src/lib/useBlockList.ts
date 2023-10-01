@@ -1,0 +1,29 @@
+import { useStorage } from "@plasmohq/storage/hook";
+
+import { newLogger } from "~/lib/logger";
+
+const llog = newLogger("useBlock");
+
+export const useBlockList = () => {
+  return useStorage<string[]>("blockList", []);
+};
+
+export const useBlock = (userId: string) => {
+  const [blockList, setBlockList] = useBlockList();
+  llog("rendering", userId, blockList);
+
+  const blocked = blockList.some((e) => e === userId);
+  const setBlocked = (b: boolean) => {
+    if (b) {
+      if (!blocked) {
+        setBlockList(blockList.concat(userId));
+      }
+    } else {
+      if (blocked) {
+        setBlockList(blockList.filter((e) => e !== userId));
+      }
+    }
+  };
+
+  return [blocked, setBlocked] as const;
+};
