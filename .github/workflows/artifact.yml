@@ -11,9 +11,8 @@ jobs:
         with:
           cache: "npm"
       - run: npm ci
-      - run: npm run build
       - run: npm run pack
       - uses: actions/upload-artifact@v3
         with:
-          name: Twitch Chat Mask.zip
+          name: Twitch Chat Mask
           path: build/chrome-mv3-prod.zip
