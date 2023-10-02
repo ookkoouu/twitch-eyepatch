@@ -20,7 +20,7 @@ export const BlockButtonWrapper = () => {
   llog("rendering", getUserID());
 
   const [userId, setUserId] = useState(getUserID());
-  const [quickBlock] = useStorage("quickBlock");
+  const [quickBlock] = useStorage("quickBlock", true);
 
   useEffect(() => {
     const obs = new MutationObserver((muts) => {

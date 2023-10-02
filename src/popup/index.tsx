@@ -38,7 +38,7 @@ const IndexPopup = () => {
             ブロックボタンを表示
           </Checkbox>
 
-          <Checkbox
+          {/* <Checkbox
             isDisabled={true}
             isChecked={followerMode}
             onChange={() => setFollowerMode(!followerMode)}>
@@ -59,7 +59,7 @@ const IndexPopup = () => {
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
-          </Container>
+          </Container> */}
         </Stack>
       </Container>
     </ChakraProvider>
