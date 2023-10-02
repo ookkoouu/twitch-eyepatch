@@ -2,16 +2,17 @@
   "name": "twitch-chat-mask",
   "displayName": "Twitch Chat Mask",
   "version": "0.0.1",
-  "description": "A basic Plasmo extension.",
+  "description": "Twitchのチャットから心の平穏を保ちます。",
   "author": "okou",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
-    "package": "plasmo build --zip",
+    "pack": "plasmo build --zip --no-minify",
     "format": "prettier -w 'src/**/*.{ts,tsx}",
     "test": "plasmo test"
   },
   "dependencies": {
+    "@plasmohq/messaging": "^0.5.0",
     "@plasmohq/storage": "^1.8.0",
     "plasmo": "0.83.0",
     "preact": "^10.18.0",
