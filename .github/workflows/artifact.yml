@@ -15,4 +15,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Twitch Chat Mask
-          path: build/chrome-mv3-prod.zip
+          path: build/chrome-mv3-prod/*
