@@ -31,20 +31,24 @@ const IndexPopup = () => {
       <Container minW={"2xs"} maxW={"2xs"} p={0} centerContent>
         <Stack direction="column" p="1em" pt="0.5em">
           <Heading size="md" mt="0">
-            Quick Block TTV
+            Twitch Chat Mask
           </Heading>
 
           <Checkbox isChecked={quickBlock} onChange={() => setQuickBlock(!quickBlock)}>
             ブロックボタンを表示
           </Checkbox>
 
-          <Checkbox isChecked={followerMode} onChange={() => setFollowerMode(!followerMode)}>
+          <Checkbox
+            isDisabled={true}
+            isChecked={followerMode}
+            onChange={() => setFollowerMode(!followerMode)}>
             フォロワー限定モード
           </Checkbox>
 
           <Container p={0} pl={6}>
             <Text fontSize={"xs"}>必要なフォロー期間</Text>
             <NumberInput
+              isDisabled={true}
               value={followerModeDays}
               onChange={(v) => setFollowerModeDays(v)}
               min={0}

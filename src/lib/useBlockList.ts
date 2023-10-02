@@ -12,7 +12,7 @@ export const useBlock = (userId: string) => {
   const [blockList, setBlockList] = useBlockList();
   llog("rendering", userId, blockList);
 
-  const blocked = blockList.some((e) => e === userId);
+  const blocked = Array.isArray(blockList) ? blockList.some((e) => e === userId) : false;
   const setBlocked = (b: boolean) => {
     if (b) {
       if (!blocked) {

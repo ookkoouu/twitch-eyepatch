@@ -1,12 +1,14 @@
 import { useEffect, useState, type FC } from "react";
 
+import { useStorage } from "@plasmohq/storage/hook";
+
 import { newLogger } from "~lib/logger";
 
 import { BlockButton } from "./blockButton";
 
 const llog = newLogger("ButtonWrapper");
 
-export const BlockButtonWrapper: FC = () => {
+export const BlockButtonWrapper = () => {
   const getUserID = () =>
     document
       .querySelector<HTMLAnchorElement>(
@@ -18,6 +20,7 @@ export const BlockButtonWrapper: FC = () => {
   llog("rendering", getUserID());
 
   const [userId, setUserId] = useState(getUserID());
+  const [quickBlock] = useStorage("quickBlock");
 
   useEffect(() => {
     const obs = new MutationObserver((muts) => {
@@ -46,9 +49,5 @@ export const BlockButtonWrapper: FC = () => {
     };
   });
 
-  return (
-    <>
-      <BlockButton userId={userId}></BlockButton>
-    </>
-  );
+  return <div>{quickBlock ? <BlockButton userId={userId}></BlockButton> : <></>}</div>;
 };

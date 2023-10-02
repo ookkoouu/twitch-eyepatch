@@ -49,7 +49,6 @@ export const BlockButton: FC<BlockButtonProps> = memo(({ userId }) => {
 
   const onClick = () => {
     blockUser(userId);
-    setBlocked(!blocked);
   };
 
   return (
