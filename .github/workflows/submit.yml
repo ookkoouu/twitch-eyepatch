@@ -10,9 +10,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           cache: "npm"
-      - name: Build the extension
-        run: npm run build
-      - name: Package the extension into a zip artifact
+      - name: Install packages
+        run: npm ci
+      - name: Build and Package the extension into a zip artifact
         run: npm run pack
       - name: Browser Platform Publish
         uses: PlasmoHQ/bpp@v3
