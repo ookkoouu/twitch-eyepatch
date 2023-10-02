@@ -13,7 +13,7 @@ jobs:
       - name: Build the extension
         run: npm run build
       - name: Package the extension into a zip artifact
-        run: npm run package
+        run: npm run pack
       - name: Browser Platform Publish
         uses: PlasmoHQ/bpp@v3
         with:

@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
-    "pack": "plasmo build --zip --no-minify",
+    "pack": "plasmo build --zip",
     "format": "prettier -w 'src/**/*.{ts,tsx}",
     "test": "plasmo test"
   },
