@@ -1,5 +1,5 @@
 import { Center, Icon, IconButton } from "@chakra-ui/react";
-import { memo, type FC } from "react";
+import { useEffect, type FC } from "react";
 import { BiUserX } from "react-icons/bi";
 
 import { useBlock } from "~/lib/useBlockList";
@@ -21,9 +21,7 @@ export interface BlockButtonProps {
   userId: string;
 }
 
-export const BlockButton: FC<BlockButtonProps> = memo(({ userId }) => {
-  llog("rendering", userId);
-
+export const BlockButton: FC<BlockButtonProps> = ({ userId }) => {
   const [blocked, setBlocked] = useBlock(userId);
 
   const blockUser = (userId: string) => {
@@ -47,14 +45,19 @@ export const BlockButton: FC<BlockButtonProps> = memo(({ userId }) => {
     }
   };
 
-  const onClick = () => {
-    blockUser(userId);
-  };
+  useEffect(() => {
+    llog("render", userId, blocked);
+    return () => {
+      llog("unrender", userId, blocked);
+    };
+  });
 
   return (
     <Center w="3rem" h="3rem" m="0.5rem">
       <IconButton
-        onClick={onClick}
+        onClick={() => {
+          blockUser(userId);
+        }}
         w="3rem"
         h="3rem"
         m="0"
@@ -72,4 +75,4 @@ export const BlockButton: FC<BlockButtonProps> = memo(({ userId }) => {
       </IconButton>
     </Center>
   );
-});
+};

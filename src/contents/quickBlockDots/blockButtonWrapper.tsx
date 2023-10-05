@@ -17,10 +17,15 @@ export const BlockButtonWrapper = () => {
       ?.href.split("/")
       .at(-1) ?? "";
 
-  llog("rendering", getUserID());
-
   const [userId, setUserId] = useState(getUserID());
   const [quickBlock] = useStorage("quickBlock", true);
+
+  useEffect(() => {
+    llog("render", getUserID());
+    return () => {
+      llog("unrender", getUserID());
+    };
+  });
 
   useEffect(() => {
     const obs = new MutationObserver((muts) => {
