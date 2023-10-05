@@ -25,7 +25,7 @@ export const disableSubMode = () => {
 const storage = new Storage({ area: "sync" });
 
 storage.watch({
-  suberMode: (change) => {
+  subscriberMode: (change) => {
     if (change.newValue == true) {
       llog("enable");
       enableSubMode();
@@ -36,7 +36,7 @@ storage.watch({
   },
 });
 
-storage.get("suberMode").then((enable) => {
+storage.get("subscriberMode").then((enable) => {
   if (enable) {
     enableSubMode();
   }
