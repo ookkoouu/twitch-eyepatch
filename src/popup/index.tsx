@@ -25,17 +25,22 @@ const IndexPopup = () => {
   const [quickBlock, setQuickBlock] = useStorage("quickBlock", true);
   const [followerMode, setFollowerMode] = useStorage("followerMode", false);
   const [followerModeDays, setFollowerModeDays] = useStorage("followerModeDays", "7");
+  const [subMode, setSubMode] = useStorage("subscriberMode", false);
 
   return (
     <ChakraProvider theme={theme}>
-      <Container minW={"2xs"} maxW={"2xs"} p={0} centerContent>
-        <Stack direction="column" p="1em" pt="0.5em">
+      <Container minW="2xs" maxW="2xs" p={0}>
+        <Stack direction="column" spacing="1em" p="1em" pt="0.5em">
           <Heading size="md" mt="0">
             Twitch Chat Mask
           </Heading>
 
           <Checkbox isChecked={quickBlock} onChange={() => setQuickBlock(!quickBlock)}>
             ブロックボタンを表示
+          </Checkbox>
+
+          <Checkbox isChecked={subMode} onChange={() => setSubMode(!subMode)}>
+            サブスク限定モード
           </Checkbox>
 
           {/* <Checkbox

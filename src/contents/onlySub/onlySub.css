@@ -1,0 +1,12 @@
+div.chat-line__message:not(
+    :has(
+        button[data-a-target="chat-badge"] > img[alt*="サブスクライバー"],
+        button[data-a-target="chat-badge"] > img[alt*="Subscriber"],
+        button[data-a-target="chat-badge"] > img[alt*="モデレーター"],
+        button[data-a-target="chat-badge"] > img[alt*="Moderator"],
+        button[data-a-target="chat-badge"] > img[alt*="認証済み"],
+        button[data-a-target="chat-badge"] > img[alt*="Verified"],
+      )
+  ) {
+  display: none;
+}
