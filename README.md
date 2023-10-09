@@ -3,6 +3,7 @@ Twitchのチャットから心の平穏を保ちます。
 
 # Features
 - [x] Quick Block  
-- [ ] Follower Only Mode  
-- [ ] Sub Only Mode  
+- [x] Only Sub Mode  
+- [ ] Quick Mute
+- [ ] Only Follower Mode  
 - [ ] Support Embed  
