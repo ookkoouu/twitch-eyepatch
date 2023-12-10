@@ -8,7 +8,8 @@ import { newLogger } from "~lib/logger";
 const llog = newLogger("subMode");
 
 export const config: PlasmoCSConfig = {
-  matches: ["https://*.twitch.tv/*"],
+  matches: ["https://*.twitch.tv/*", "https://twitchtheater.tv/*", "https://multistre.am/*"],
+  all_frames: true,
 };
 
 export const enableSubMode = () => {
