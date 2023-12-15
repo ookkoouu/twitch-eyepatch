@@ -11,8 +11,17 @@ jobs:
         with:
           cache: "npm"
       - run: npm ci
-      - run: npm run pack
+
+      - name: Package for Chrome
+        run: npm run pack:chrome
       - uses: actions/upload-artifact@v3
         with:
-          name: Twitch Chat Mask
+          name: TwitchChatMask_chrome
           path: build/chrome-mv3-prod/*
+
+      - name: Package for Firefox
+        run: npm run pack:firefox
+      - uses: actions/upload-artifact@v3
+        with:
+          name: TwitchChatMask_firefox
+          path: build/firefox-mv3-prod/*

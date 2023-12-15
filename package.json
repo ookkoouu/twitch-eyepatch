@@ -7,9 +7,19 @@
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
-    "pack": "plasmo build --zip",
+    "pack:chrome": "plasmo build --zip --target=chrome-mv3",
+    "pack:firefox": "plasmo build --zip --target=firefox-mv3",
     "format": "prettier -w 'src/**/*.{ts,tsx}",
     "test": "plasmo test"
+  },
+  "manifest": {
+    "author": "okou",
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "{7d719697-1853-46ef-80da-9254cbc363b7}",
+        "strict_min_version": "121"
+      }
+    }
   },
   "dependencies": {
     "@plasmohq/messaging": "^0.6.0",
