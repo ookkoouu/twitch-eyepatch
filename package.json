@@ -1,7 +1,7 @@
 {
   "name": "twitch-chat-mask",
   "displayName": "Twitch Chat Mask",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Twitchのチャットから心の平穏を保ちます。",
   "author": "okou",
   "homepage": "https://github.com/ookkoouu/twitch-chat-mask",
