@@ -14,7 +14,7 @@ export const getStyle = () => document.createElement("style");
 
 export const getInlineAnchor = () =>
   document.querySelector(
-    "#VIEWER_CARD_ID > div > div:has(button[data-test-selector='gift-subscribe-button']) > div:nth-child(1)",
+    "#VIEWER_CARD_ID > div > div:has(button[data-test-selector='whisper-button'], button[data-test-selector='gift-subscribe-button']) > div:nth-child(1)",
   );
 
 const PlasmoMainUI: FC<PlasmoCSUIProps> = ({ anchor }) => {
