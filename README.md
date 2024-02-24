@@ -1,14 +1,12 @@
 # Twitch Chat Mask
+
 Twitchのチャットから心の平穏を保ちます。
 
 # Features
-- [x] Quick Block
-- [x] Only Sub Mode
-- [x] Support Embed
-- [ ] Quick Mute
-- [ ] Only Follower Mode
 
-# Build and Install
-1. Setup Node.js
-2. `npm ci && npm run pack`
-3. Install extension from zip in `./build`
+- [x] Quick Block
+- [x] Local Sub Mode
+- [x] Multi Viewer Support
+- [x] Hide Reply
+- [ ] Local Timeout
+- [ ] Local Follower Mode
