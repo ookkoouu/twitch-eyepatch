@@ -1,9 +1,6 @@
 {
-  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "files": {
-    "include": [
-      "src/**/*.ts",
-      "src/**/*.tsx"
-    ]
-  }
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"files": {
+		"ignore": [".output/**", ".wxt/**", "node_modules"]
+	}
 }
