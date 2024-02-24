@@ -1,6 +1,6 @@
 {
   "name": "twitch-chat-mask",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Twitchのチャットから心の平穏を保ちます。",
   "private": true,
   "type": "module",

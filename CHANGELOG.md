@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ookkoouu/twitch-chat-mask/compare/v1.0.0...v1.0.1) (2024-02-24)
+
+
+### Bug Fixes
+
+* hide unavalable options ([501366c](https://github.com/ookkoouu/twitch-chat-mask/commit/501366ce6248ed0c81dbac9fdc9a5f7527878717))
+
 ## [1.0.0](https://github.com/ookkoouu/twitch-chat-mask/compare/v0.3.1...v1.0.0) (2024-02-24)
 
 
