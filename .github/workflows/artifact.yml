@@ -7,21 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           cache: "npm"
       - run: npm ci
+      - run: npm run build
 
-      - name: Package for Chrome
-        run: npm run pack:chrome
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: TwitchChatMask_chrome
-          path: build/chrome-mv3-prod/*
+          path: .output/chrome-mv3/*
 
-      - name: Package for Firefox
-        run: npm run pack:firefox
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: TwitchChatMask_firefox
-          path: build/firefox-mv3-prod/*
+          path: .output/firefox-mv2/*
