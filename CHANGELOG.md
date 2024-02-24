@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/ookkoouu/twitch-chat-mask/compare/v1.0.1...v1.0.2) (2024-02-24)
+
+
+### Bug Fixes
+
+* apply icon ([90aadb5](https://github.com/ookkoouu/twitch-chat-mask/commit/90aadb50b0c2fedee9875a62ca50c23258d7972a))
+
 ## [1.0.1](https://github.com/ookkoouu/twitch-chat-mask/compare/v1.0.0...v1.0.1) (2024-02-24)
 
 
