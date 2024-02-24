@@ -21,6 +21,7 @@ jobs:
   build:
     if: ${{ needs.release-please.outputs.do_publish }}
     runs-on: ubuntu-latest
+    needs: release-please
     permissions:
       contents: read
     steps:
