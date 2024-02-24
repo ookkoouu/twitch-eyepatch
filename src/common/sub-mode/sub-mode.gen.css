@@ -1,0 +1,88 @@
+.chat-line__message,.video-chat__message-list-wrapper li,.clips-chat-replay>div{display:none}
+html[lang=en-US]{.chat-line__message:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verified"],img.chat-badge[alt*="Moderator"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verified"],img.chat-badge[alt*="Moderator"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verified"],img.chat-badge[alt*="Moderator"]){display:block}}
+html[lang=da-DK]{.chat-line__message:has(img.chat-badge[alt*="Indholdsudbyder"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Bekræftet"],img.chat-badge[alt*="Moderator"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Indholdsudbyder"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Bekræftet"],img.chat-badge[alt*="Moderator"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Indholdsudbyder"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Bekræftet"],img.chat-badge[alt*="Moderator"]){display:block}}
+html[lang=de-DE]{.chat-line__message:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verifiziert"],img.chat-badge[alt*="Moderator"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verifiziert"],img.chat-badge[alt*="Moderator"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verifiziert"],img.chat-badge[alt*="Moderator"]){display:block}}
+html[lang=en-GB]{.chat-line__message:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verified"],img.chat-badge[alt*="Moderator"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verified"],img.chat-badge[alt*="Moderator"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verified"],img.chat-badge[alt*="Moderator"]){display:block}}
+html[lang=es-ES]{.chat-line__message:has(img.chat-badge[alt*="Emisor"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificado"],img.chat-badge[alt*="Moderador"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Emisor"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificado"],img.chat-badge[alt*="Moderador"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Emisor"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificado"],img.chat-badge[alt*="Moderador"]){display:block}}
+html[lang=es-MX]{.chat-line__message:has(img.chat-badge[alt*="Emisor"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificado"],img.chat-badge[alt*="Moderador"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Emisor"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificado"],img.chat-badge[alt*="Moderador"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Emisor"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificado"],img.chat-badge[alt*="Moderador"]){display:block}}
+html[lang=fr-FR]{.chat-line__message:has(img.chat-badge[alt*="Diffuseur"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Vérifié"],img.chat-badge[alt*="Modérateur"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Diffuseur"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Vérifié"],img.chat-badge[alt*="Modérateur"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Diffuseur"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Vérifié"],img.chat-badge[alt*="Modérateur"]){display:block}}
+html[lang=it-IT]{.chat-line__message:has(img.chat-badge[alt*="Emittente"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificato"],img.chat-badge[alt*="Moderatore"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Emittente"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificato"],img.chat-badge[alt*="Moderatore"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Emittente"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificato"],img.chat-badge[alt*="Moderatore"]){display:block}}
+html[lang=hu-HU]{.chat-line__message:has(img.chat-badge[alt*="Közvetítő"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Hitelesített"],img.chat-badge[alt*="Moderátor"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Közvetítő"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Hitelesített"],img.chat-badge[alt*="Moderátor"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Közvetítő"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Hitelesített"],img.chat-badge[alt*="Moderátor"]){display:block}}
+html[lang=nl-NL]{.chat-line__message:has(img.chat-badge[alt*="Uitzender"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Geverifieerd"],img.chat-badge[alt*="Moderator"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Uitzender"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Geverifieerd"],img.chat-badge[alt*="Moderator"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Uitzender"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Geverifieerd"],img.chat-badge[alt*="Moderator"]){display:block}}
+html[lang=no-NO]{.chat-line__message:has(img.chat-badge[alt*="Kringkaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Bekreftet"],img.chat-badge[alt*="Moderator"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Kringkaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Bekreftet"],img.chat-badge[alt*="Moderator"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Kringkaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Bekreftet"],img.chat-badge[alt*="Moderator"]){display:block}}
+html[lang=pl-PL]{.chat-line__message:has(img.chat-badge[alt*="Nadawca"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Zweryfikowane"],img.chat-badge[alt*="Moderator"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Nadawca"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Zweryfikowane"],img.chat-badge[alt*="Moderator"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Nadawca"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Zweryfikowane"],img.chat-badge[alt*="Moderator"]){display:block}}
+html[lang=pt-PT]{.chat-line__message:has(img.chat-badge[alt*="Emissor"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Confirmado"],img.chat-badge[alt*="Moderador"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Emissor"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Confirmado"],img.chat-badge[alt*="Moderador"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Emissor"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Confirmado"],img.chat-badge[alt*="Moderador"]){display:block}}
+html[lang=pt-BR]{.chat-line__message:has(img.chat-badge[alt*="Emissora"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificado"],img.chat-badge[alt*="Moderador"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Emissora"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificado"],img.chat-badge[alt*="Moderador"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Emissora"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificado"],img.chat-badge[alt*="Moderador"]){display:block}}
+html[lang=ro-RO]{.chat-line__message:has(img.chat-badge[alt*="Emiţător"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificat"],img.chat-badge[alt*="Moderator"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Emiţător"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificat"],img.chat-badge[alt*="Moderator"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Emiţător"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verificat"],img.chat-badge[alt*="Moderator"]){display:block}}
+html[lang=sk-SK]{.chat-line__message:has(img.chat-badge[alt*="Vysielateľ"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Overené"],img.chat-badge[alt*="Moderátor"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Vysielateľ"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Overené"],img.chat-badge[alt*="Moderátor"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Vysielateľ"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Overené"],img.chat-badge[alt*="Moderátor"]){display:block}}
+html[lang=fi-FI]{.chat-line__message:has(img.chat-badge[alt*="Lähettäjä"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Vahvistettu kumppani"],img.chat-badge[alt*="Moderaattori"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Lähettäjä"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Vahvistettu kumppani"],img.chat-badge[alt*="Moderaattori"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Lähettäjä"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Vahvistettu kumppani"],img.chat-badge[alt*="Moderaattori"]){display:block}}
+html[lang=sv-SE]{.chat-line__message:has(img.chat-badge[alt*="Sändare"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verifierad"],img.chat-badge[alt*="Moderator"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Sändare"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verifierad"],img.chat-badge[alt*="Moderator"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Sändare"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Verifierad"],img.chat-badge[alt*="Moderator"]){display:block}}
+html[lang=vi-VN]{.chat-line__message:has(img.chat-badge[alt*="Đài phát"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Đã xác minh"],img.chat-badge[alt*="Người điều hành"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Đài phát"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Đã xác minh"],img.chat-badge[alt*="Người điều hành"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Đài phát"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Đã xác minh"],img.chat-badge[alt*="Người điều hành"]){display:block}}
+html[lang=tr-TR]{.chat-line__message:has(img.chat-badge[alt*="Yayınlayan"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Doğrulandı"],img.chat-badge[alt*="Moderatör"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Yayınlayan"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Doğrulandı"],img.chat-badge[alt*="Moderatör"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Yayınlayan"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Doğrulandı"],img.chat-badge[alt*="Moderatör"]){display:block}}
+html[lang=cs-CZ]{.chat-line__message:has(img.chat-badge[alt*="Vysílající uživatel"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Ověřeno"],img.chat-badge[alt*="Moderátor"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Vysílající uživatel"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Ověřeno"],img.chat-badge[alt*="Moderátor"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Vysílající uživatel"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Ověřeno"],img.chat-badge[alt*="Moderátor"]){display:block}}
+html[lang=el-GR]{.chat-line__message:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Επαληθεύτηκε"],img.chat-badge[alt*="Επόπτης"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Επαληθεύτηκε"],img.chat-badge[alt*="Επόπτης"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Broadcaster"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Επαληθεύτηκε"],img.chat-badge[alt*="Επόπτης"]){display:block}}
+html[lang=bg-BG]{.chat-line__message:has(img.chat-badge[alt*="Излъчващ играч"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Проверено"],img.chat-badge[alt*="Модератор"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Излъчващ играч"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Проверено"],img.chat-badge[alt*="Модератор"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Излъчващ играч"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Проверено"],img.chat-badge[alt*="Модератор"]){display:block}}
+html[lang=ru-RU]{.chat-line__message:has(img.chat-badge[alt*="Владелец канала"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Подтверждено"],img.chat-badge[alt*="Модератор"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="Владелец канала"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Подтверждено"],img.chat-badge[alt*="Модератор"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="Владелец канала"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="Подтверждено"],img.chat-badge[alt*="Модератор"]){display:block}}
+html[lang=th-TH]{.chat-line__message:has(img.chat-badge[alt*="นักจัดรายการ"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="ยืนยันแล้ว"],img.chat-badge[alt*="ผู้ดำเนินรายการ"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="นักจัดรายการ"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="ยืนยันแล้ว"],img.chat-badge[alt*="ผู้ดำเนินรายการ"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="นักจัดรายการ"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="ยืนยันแล้ว"],img.chat-badge[alt*="ผู้ดำเนินรายการ"]){display:block}}
+html[lang=zh-CN]{.chat-line__message:has(img.chat-badge[alt*="直播者"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="已验证"],img.chat-badge[alt*="管理员"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="直播者"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="已验证"],img.chat-badge[alt*="管理员"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="直播者"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="已验证"],img.chat-badge[alt*="管理员"]){display:block}}
+html[lang=zh-TW]{.chat-line__message:has(img.chat-badge[alt*="轉播"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="已驗證"],img.chat-badge[alt*="管理員"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="轉播"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="已驗證"],img.chat-badge[alt*="管理員"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="轉播"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="已驗證"],img.chat-badge[alt*="管理員"]){display:block}}
+html[lang=ja-JP]{.chat-line__message:has(img.chat-badge[alt*="ストリーマー"],img.chat-badge[alt*="サブスクライバー"],img.chat-badge[alt*="認証済み"],img.chat-badge[alt*="モデレーター"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="ストリーマー"],img.chat-badge[alt*="サブスクライバー"],img.chat-badge[alt*="認証済み"],img.chat-badge[alt*="モデレーター"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="ストリーマー"],img.chat-badge[alt*="サブスクライバー"],img.chat-badge[alt*="認証済み"],img.chat-badge[alt*="モデレーター"]){display:block}}
+html[lang=ko-KR]{.chat-line__message:has(img.chat-badge[alt*="스트리머"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="인증 완료"],img.chat-badge[alt*="매니저"]){display:block}
+.video-chat__message-list-wrapper li:has(img.chat-badge[alt*="스트리머"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="인증 완료"],img.chat-badge[alt*="매니저"]){display:block}
+.clips-chat-replay>div:has(img.chat-badge[alt*="스트리머"],img.chat-badge[alt*="Subscriber"],img.chat-badge[alt*="인증 완료"],img.chat-badge[alt*="매니저"]){display:block}}

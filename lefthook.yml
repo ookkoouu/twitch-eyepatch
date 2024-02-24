@@ -1,0 +1,17 @@
+pre-commit:
+  parallel: true
+  commands:
+    prettier:
+      glob: "*.{md,yml,yaml,html,css}"
+      exclude: (package-lock\.json)
+      run: |
+        npx prettier -w {staged_files} && git update-index --again
+    check:
+      glob: "*.{ts,tsx,cts,mts,json,jsonc}"
+      run: >
+        npx biome check --apply --no-errors-on-unmatched
+        --files-ignore-unknown=true {staged_files}
+        && git update-index --again
+    typecheck:
+      glob: "*.{ts,tsx}"
+      run: npm run typecheck

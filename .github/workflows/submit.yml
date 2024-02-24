@@ -1,21 +1,37 @@
 name: "Submit to Web Store"
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  release-please:
     runs-on: ubuntu-latest
+    outputs:
+      do_publish: ${{ steps.release.outputs.release_created }}
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        id: release
+        with:
+          release-type: node
+
+  build:
+    if: ${{ needs.release-please.outputs.do_publish }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           cache: "npm"
-      - name: Install packages
-        run: npm ci
-      - name: Build and Package the extension into a zip artifact
-        run: npm run pack
-      - name: Browser Platform Publish
+      - run: npm ci
+      - run: npm run zip
+      - name: Publish
         uses: PlasmoHQ/bpp@v3
         with:
           keys: ${{ secrets.SUBMIT_KEYS }}
-          artifact: build/chrome-mv3-prod.zip
+          artifact: .output/chrome.zip

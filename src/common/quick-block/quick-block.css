@@ -1,0 +1,110 @@
+.tcm-chat-line__icon {
+	background-color: var(--color-background-base);
+	border-radius: var(--border-radius-medium);
+	box-shadow: var(--shadow-elevation-1);
+}
+
+.tcm-icon-button {
+	user-select: none;
+	border-radius: var(--border-radius-medium);
+	height: 3rem;
+	width: 3rem;
+	background-color: transparent;
+	color: var(--color-fill-button-icon);
+	&:hover {
+		background-color: var(--color-background-button-text-hover);
+	}
+}
+
+.tcm-center {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+
+.tcm-icon-button-figure {
+	height: 2rem;
+	width: 2rem;
+}
+
+.tcm-icon-button[data-is-blocked="true"] {
+	color: red !important;
+}
+
+/*
+role = parent
+before = arrow
+after = tooltip box
+*/
+
+[aria-label][role~="tooltip"] {
+	position: relative;
+}
+
+[aria-label][role~="tooltip"]:after,
+[aria-label][role~="tooltip"]:before {
+	position: absolute;
+	box-sizing: border-box;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity .1s ease-in-out 0.3s;
+	backface-visibility: hidden;
+	z-index: 300;
+}
+
+[aria-label][role~="tooltip"]:before {
+	content: "";
+}
+
+[aria-label][role~="tooltip"]:after {
+	box-sizing: initial;
+	padding: 0.25rem 0.5rem;
+	font-weight: 800;
+	color: var(--color-text-tooltip);
+	white-space: nowrap;
+	content: attr(aria-label);
+	background: var(--color-background-tooltip);
+	border-radius: var(--border-radius-medium);
+}
+
+[aria-label][role~="tooltip"]:focus-visible:after,
+[aria-label][role~="tooltip"]:focus-visible:before,
+[aria-label][role~="tooltip"]:hover:after,
+[aria-label][role~="tooltip"]:hover:before {
+	pointer-events: none;
+	opacity: 1;
+}
+
+[role~="tooltip"][data-tooltip-position|="top"]:before {
+	bottom: auto;
+	bottom: 100%;
+	left: 50%;
+	border: 6px solid transparent;
+	border-top: 5px solid var(--color-background-tooltip);
+	transform: translateX(-50%);
+}
+
+[role~="tooltip"][data-tooltip-position|="top"]:after {
+	bottom: 100%;
+	margin-bottom: 10px;
+	right: calc(-1rem - -2px);
+}
+
+[role~="tooltip"][data-tooltip-position|="bottom"]:before {
+	top: 100%;
+	bottom: auto;
+	left: 50%;
+	border: 6px solid transparent;
+	border-bottom: 5px solid var(--color-background-tooltip);
+	transform: translateX(-50%);
+}
+
+[role~="tooltip"][data-tooltip-position|="bottom"]:after {
+	top: 100%;
+	bottom: auto;
+	left: 50%;
+	margin-top: 12px;
+	transform: translateX(-50%);
+}

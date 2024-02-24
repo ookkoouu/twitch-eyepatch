@@ -1,21 +1,7 @@
 {
-  "extends": "plasmo/templates/tsconfig.base",
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    ".plasmo/index.d.ts",
-    "./**/*.ts",
-    "./**/*.tsx"
-  ],
+  "extends": "./.wxt/tsconfig.json",
   "compilerOptions": {
-    "paths": {
-      "~*": [
-        "./src/*"
-      ],
-      "react": ["./node_modules/preact/compat/"],
-      "react-dom": ["./node_modules/preact/compat/"]
-    },
-    "baseUrl": "."
+    "allowImportingTsExtensions": true,
+    "jsx": "preserve"
   }
 }
