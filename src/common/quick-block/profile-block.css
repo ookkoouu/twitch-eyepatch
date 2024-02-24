@@ -1,0 +1,11 @@
+.profile-block {
+	width: 100%;
+	& button {
+		width: 100%;
+		border-radius: var(--border-radius-medium);
+		padding: 0.5rem;
+	}
+	& button:hover {
+		background-color: var(--color-background-interactable-hover);
+	}
+}
