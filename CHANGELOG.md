@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/ookkoouu/twitch-chat-mask/compare/v1.0.3...v1.0.4) (2024-02-27)
+
+
+### Bug Fixes
+
+* block button color doesn't change ([00e39ca](https://github.com/ookkoouu/twitch-chat-mask/commit/00e39ca9c7e87e78ac682c9cd92806978e2b0e77))
+
 ## [1.0.3](https://github.com/ookkoouu/twitch-chat-mask/compare/v1.0.2...v1.0.3) (2024-02-27)
 
 
