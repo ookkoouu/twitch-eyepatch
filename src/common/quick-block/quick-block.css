@@ -29,7 +29,7 @@
   width: 2rem;
 }
 
-.tcm-chat-line__icon[data-is-blocked="true"] {
+.tcm-chat-line__icon[data-is-blocked="true"] button {
   color: red !important;
 }
 
