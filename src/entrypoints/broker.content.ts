@@ -7,19 +7,11 @@ export default defineContentScript({
 	main() {
 		dlog("Init");
 		mainworldMessenger.onMessage("getAppSettings", ({ data }) => {
-			return SettingStorage.get(data);
+			return SettingStorage.getItem(data);
 		});
 
 		mainworldMessenger.onMessage("setAppSettings", ({ data }) => {
-			SettingStorage.set(data.key, data.value);
-		});
-
-		// For quick block
-		SettingStorage.watch({
-			key: "quickBlock",
-			callback(chg) {
-				mainworldMessenger.sendMessage("subModeChanged", chg.newValue).catch();
-			},
+			SettingStorage.setItem(data.key, data.value);
 		});
 
 		dlog("Loaded");

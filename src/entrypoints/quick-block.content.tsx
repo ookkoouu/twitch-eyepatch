@@ -23,7 +23,10 @@ export default defineContentScript({
 	world: "MAIN",
 	async main() {
 		dlog("Init");
-		if (!isLoggedInPage()) {
+		if (
+			!isLoggedInPage() ||
+			!(await mainworldMessenger.sendMessage("getAppSettings", "quickBlock"))
+		) {
 			dlog("Calceled");
 		}
 
@@ -32,10 +35,6 @@ export default defineContentScript({
 		style.id = "tcm-asdflghj";
 		document.head.append(style);
 
-		let enabled = Boolean(
-			await mainworldMessenger.sendMessage("getAppSettings", "quickBlock"),
-		);
-
 		// Let enabled = true;
 		createIntegratedDynamicUI<Root | undefined>({
 			position: "inline",
@@ -43,10 +42,6 @@ export default defineContentScript({
 			anchor: ".chat-line__icons",
 
 			onMount(wrapper) {
-				if (!enabled) {
-					return;
-				}
-
 				const userLogin = getChatUserLogin(wrapper);
 				if (userLogin === undefined) {
 					dlog("failed to get chat");
@@ -62,11 +57,6 @@ export default defineContentScript({
 			},
 		});
 
-		mainworldMessenger.onMessage("subModeChanged", ({ data }) => {
-			dlog(data ? "Enabled" : "Disabled");
-			enabled = data;
-		});
-
-		dlog(`Loaded as ${enabled}`);
+		dlog("Loaded");
 	},
 });

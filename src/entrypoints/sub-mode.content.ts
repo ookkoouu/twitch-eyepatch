@@ -5,24 +5,21 @@ export default defineContentScript({
 	matches: ["https://*.twitch.tv/*"],
 	async main() {
 		dlog("Init");
-		SettingStorage.watch({
-			key: "subMode",
-			callback(chg) {
-				if (chg.newValue) {
-					dlog("Enabled");
-					enableSubMode();
-				} else {
-					dlog("Disabled");
-					disableSubMode();
-				}
-			},
+		SettingStorage.watchItem("subMode", (newValue) => {
+			if (newValue) {
+				dlog("Enabled");
+				enableSubMode();
+			} else {
+				dlog("Disabled");
+				disableSubMode();
+			}
 		});
 
 		await sleep(10); // Wait for storage sync
-		if (SettingStorage.get("subMode")) {
+		if (SettingStorage.getItem("subMode")) {
 			enableSubMode();
 		}
 
-		dlog(`Loaded as ${SettingStorage.get("subMode")}`);
+		dlog(`Loaded as ${SettingStorage.getItem("subMode")}`);
 	},
 });

@@ -24,6 +24,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@okou/webext-storage": "^2.0.3",
     "@webext-core/messaging": "^1.4.0",
     "framer-motion": "^11.0.3",
     "nanoid": "^5.0.5",

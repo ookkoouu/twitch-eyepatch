@@ -1,5 +1,4 @@
 import { SettingStorage } from "@/common/storage";
-import { useKVStorage } from "@/lib/webext-storage/react";
 import {
 	ChakraProvider,
 	Container,
@@ -8,6 +7,7 @@ import {
 	VStack,
 	extendTheme,
 } from "@chakra-ui/react";
+import { useKVStorage } from "@okou/webext-storage/react";
 import OpNumber from "./op-number";
 import OpSwitch from "./op-switch";
 
@@ -27,7 +27,7 @@ const theme = extendTheme({
 export default function AppSettings() {
 	const [
 		{ followerMode, quickBlock, subMode, requiredFollowDays, hideReply },
-		setSettings,
+		{ setItem: setSettings },
 	] = useKVStorage(SettingStorage);
 
 	return (

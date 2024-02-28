@@ -1,4 +1,4 @@
-import { KVStorage, Storage } from "@/lib/webext-storage";
+import { KVStorage, Storage } from "@okou/webext-storage";
 import { type TwitchUser } from "./types";
 
 const DefaultSettings = {
