@@ -1,0 +1,17 @@
+.tcm-qb-vod {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+
+  & button {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: var(--border-radius-medium);
+    &:hover {
+      background-color: var(--color-background-interactable-hover);
+    }
+    &:active {
+      background-color: var(--color-background-interactable-active);
+    }
+  }
+}
