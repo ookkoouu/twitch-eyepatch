@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/ookkoouu/twitch-chat-mask/compare/v1.0.4...v1.1.0) (2024-02-28)
+
+
+### Features
+
+* support quick-block on VOD ([35d5a70](https://github.com/ookkoouu/twitch-chat-mask/commit/35d5a7040330a204e1ec1cb8c82d385e5d33a239))
+
+
+### Bug Fixes
+
+* use webext-storage ([17d09aa](https://github.com/ookkoouu/twitch-chat-mask/commit/17d09aa17e1c5e8e960b1ddb073e69b768bad46f))
+
 ## [1.0.4](https://github.com/ookkoouu/twitch-chat-mask/compare/v1.0.3...v1.0.4) (2024-02-27)
 
 
