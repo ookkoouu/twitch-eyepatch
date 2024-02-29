@@ -1,3 +1,5 @@
+import OpNumber from "@/common/components/op-number";
+import OpSwitch from "@/common/components/op-switch";
 import { SettingStorage } from "@/common/storage";
 import {
 	ChakraProvider,
@@ -8,8 +10,6 @@ import {
 	extendTheme,
 } from "@chakra-ui/react";
 import { useKVStorage } from "@okou/webext-storage/react";
-import OpNumber from "./op-number";
-import OpSwitch from "./op-switch";
 
 const theme = extendTheme({
 	fontSizes: {

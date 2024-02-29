@@ -1,7 +1,7 @@
-.tcm-qb-vod {
+.tcm-balloon-button {
   display: flex;
   align-items: center;
-  padding: 0 0.5rem;
+  width: 100%;
 
   & button {
     width: 100%;

@@ -1,12 +1,13 @@
-import { useBlock } from "@/common/quick-block";
 import { type TwitchUserLogin } from "@/common/types";
 import { BiUserX } from "react-icons/bi";
+import { useBlock } from "../use-block";
+import "./stream-chat.css";
 
 export type QuickBlockProps = {
 	readonly userLogin: TwitchUserLogin;
 };
 
-export default function QuickBlock({ userLogin }: QuickBlockProps) {
+export default function StreamChatBlock({ userLogin }: QuickBlockProps) {
 	const [blocked, setBlocked] = useBlock(userLogin);
 
 	const toggleBlock = () => {

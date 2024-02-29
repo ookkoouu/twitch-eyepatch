@@ -1,5 +1,5 @@
 import { Failure, type Result } from "@/utils/result";
-import { type TwitchUser, type TwitchUserLogin } from "../types";
+import { type TwitchUser, type TwitchUserLogin } from "../../common/types";
 import { getUserByLogin } from "./gql";
 
 export const Selector = {
@@ -54,6 +54,7 @@ export function getCurrentUser(): TwitchUser {
 export function isLoggedInPage() {
 	// @ts-expect-error cookies
 	return isDev() ? true : Boolean(cookies.login);
+	//return Boolean(cookies.login);
 }
 
 export function getLanguage() {

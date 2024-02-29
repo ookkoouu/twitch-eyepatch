@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { Selector } from "../twitch";
+import { Selector } from "../../lib/twitch";
 
 export const privilegeBadges: Record<string, string[]> = {
 	"en-US": ["Broadcaster", "Subscriber", "Verified", "Moderator"],

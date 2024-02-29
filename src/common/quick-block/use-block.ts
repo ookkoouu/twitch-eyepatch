@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { type TwitchUser, type TwitchUserLogin } from "@/common/types";
 import {
 	blockUser,
 	getBlockedUsers,
 	getUserByLogin,
 	unblockUser,
-} from "../twitch";
-import { type TwitchUser, type TwitchUserLogin } from "../types";
-// Import dlog from "@/utils/dlog";
+} from "@/lib/twitch";
+import { useEffect, useState } from "react";
 
 export const useBlock = (userLogin: TwitchUserLogin, fetched?: boolean) => {
 	const [blocked, setBlocked] = useState(false);
