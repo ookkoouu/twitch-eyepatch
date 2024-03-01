@@ -1,13 +1,20 @@
-import BalloonButton from "@/common/components/balloon-button";
+import {
+	BalloonButton,
+	BalloonButtonProps,
+} from "@/common/components/balloon-button";
+import { useBlock } from "@/common/quick-block/use-block";
 import type { TwitchUser } from "@/common/types";
-import { useBlock } from "../use-block";
 
-export type BlockRowProps = {
+export type BalloonBlockButtonProps = {
 	readonly user: TwitchUser;
 	readonly fetched?: boolean;
-};
+} & BalloonButtonProps;
 
-export default function ProfileBlock({ user, fetched }: BlockRowProps) {
+export function BalloonBlockButton({
+	user,
+	fetched,
+	...props
+}: BalloonBlockButtonProps) {
 	const [blocked, setBlocked] = useBlock(user.login, fetched);
 
 	const toggleBlock = () => {
@@ -16,10 +23,12 @@ export default function ProfileBlock({ user, fetched }: BlockRowProps) {
 	};
 
 	return (
-		<BalloonButton onClick={toggleBlock}>
+		<BalloonButton onClick={toggleBlock} {...props}>
 			{blocked
 				? `${user.displayName}さんをブロック解除`
 				: `${user.displayName}さんをブロック`}
 		</BalloonButton>
 	);
 }
+
+export default BalloonBlockButton;

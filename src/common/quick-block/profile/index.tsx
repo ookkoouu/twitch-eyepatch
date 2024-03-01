@@ -1,8 +1,8 @@
+import { BalloonBlockButton } from "@/common/components/balloon-block-button";
 import { TwitchUser, TwitchUserLogin } from "@/common/types";
 import { createIntegratedDynamicUI } from "@/lib/dynamic-ui-mw";
 import { getUserByLogin, isLoggedInPage } from "@/lib/twitch";
 import { type Root, createRoot } from "react-dom/client";
-import ProfileBlock from "./profile-block";
 
 const regProfileUrl = /^https:\/\/www\.twitch\.tv\/(\w+)$/;
 
@@ -39,7 +39,7 @@ async function getUser(): Promise<TwitchUser | undefined> {
 					dlog("failed to get user");
 					return;
 				}
-				root.render(<ProfileBlock fetched user={user} />);
+				root.render(<BalloonBlockButton fetched user={user} />);
 			});
 
 			return root;

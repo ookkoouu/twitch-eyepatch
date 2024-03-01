@@ -14,6 +14,9 @@
   &:hover {
     background-color: var(--color-background-button-text-hover);
   }
+  &:active {
+    background-color: var(--color-background-interactable-active);
+  }
 }
 
 .tcm-center {

@@ -1,8 +1,8 @@
+import { BalloonBlockButton } from "@/common/components/balloon-block-button";
 import type { TwitchUser, TwitchUserLogin } from "@/common/types";
 import { createIntegratedDynamicUI } from "@/lib/dynamic-ui-mw";
 import { getUserByLogin, isLoggedInPage } from "@/lib/twitch";
 import { type Root, createRoot } from "react-dom/client";
-import VodChatBlock from "./vod-chat";
 
 async function getUser(uiHost: HTMLElement): Promise<TwitchUser | undefined> {
 	const userLogin = uiHost
@@ -37,7 +37,9 @@ async function getUser(uiHost: HTMLElement): Promise<TwitchUser | undefined> {
 					dlog("failed to get user");
 					return;
 				}
-				root.render(<VodChatBlock user={user} />);
+				root.render(
+					<BalloonBlockButton user={user} style={{ padding: "0 0.5rem" }} />,
+				);
 			});
 			return root;
 		},

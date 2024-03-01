@@ -1,10 +1,10 @@
 import type { ComponentProps } from "react";
 import "./balloon-button.css";
 
-type BalloonButtonProps = ComponentProps<"div"> &
+export type BalloonButtonProps = ComponentProps<"div"> &
 	Pick<ComponentProps<"button">, "onClick">;
 
-export default function BalloonButton({
+export function BalloonButton({
 	children,
 	onClick,
 	...props
@@ -17,3 +17,5 @@ export default function BalloonButton({
 		</div>
 	);
 }
+
+export default BalloonButton;
