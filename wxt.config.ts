@@ -7,7 +7,7 @@ export default defineConfig({
 		plugins: [react()],
 	}),
 	manifest: {
-		name: "Twitch Chat Mask",
+		name: "Twitch Eyepatch",
 		permissions: ["storage"],
 	},
 	zip: {
