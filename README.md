@@ -1,4 +1,4 @@
-# Twitch Chat Mask
+# Twitch Eyepatch
 
 Twitchのチャットから心の平穏を保ちます。
 
