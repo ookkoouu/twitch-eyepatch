@@ -1,4 +1,4 @@
-import { type TwitchUserLogin } from "@/common/types";
+import type { TwitchUserLogin } from "@/common/types";
 import { BiUserX } from "react-icons/bi";
 import { useBlock } from "../use-block";
 import "./stream-chat.css";
@@ -17,15 +17,19 @@ export default function StreamChatBlock({ userLogin }: QuickBlockProps) {
 
 	return (
 		<div
-			className="chat-line__reply-icon tcm-chat-line__icon"
+			className="chat-line__reply-icon eyepatch-chat-line__icon"
 			aria-label={blocked ? "クリックしてブロック解除" : "クリックしてブロック"}
 			data-is-blocked={blocked}
 			data-tooltip-position="top"
 			role="tooltip"
 		>
-			<button type="button" className="tcm-icon-button" onClick={toggleBlock}>
-				<div className="tcm-center">
-					<BiUserX className="tcm-icon-button-figure" />
+			<button
+				type="button"
+				className="eyepatch-icon-button"
+				onClick={toggleBlock}
+			>
+				<div className="eyepatch-center">
+					<BiUserX className="eyepatch-icon-button-figure" />
 				</div>
 			</button>
 		</div>

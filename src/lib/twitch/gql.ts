@@ -134,7 +134,7 @@ export async function getUserByID(
 	userId: TwitchUserId,
 ): Promise<Result<TwitchUser>> {
 	const query = gql`
-		query TCMGetUserByID($userId: ID!) {
+		query TEPGetUserByID($userId: ID!) {
 			user(id: $userId) {
 				id
 				login
@@ -161,7 +161,7 @@ export async function getUserByLogin(
 	userLogin: TwitchUserLogin,
 ): Promise<Result<TwitchUser>> {
 	const query = gql`
-		query TCMGetUserByLogin($userLogin: String!) {
+		query TEPGetUserByLogin($userLogin: String!) {
 			user(login: $userLogin) {
 				id
 				login
@@ -186,7 +186,7 @@ export async function getUserByLogin(
 
 export async function getBlockedUsers(): Promise<Result<TwitchUser[]>> {
 	const query = gql`
-		query TCMBlockedUsers {
+		query TEPBlockedUsers {
 			currentUser {
 				blockedUsers {
 					id
@@ -220,7 +220,7 @@ export async function getBlockedUsers(): Promise<Result<TwitchUser[]>> {
 
 export async function blockUser(userId: TwitchUserId): Promise<boolean> {
 	const mutation = gql`
-		mutation TCMBlockUser($input: BlockUserInput!) {
+		mutation TEPBlockUser($input: BlockUserInput!) {
 			blockUser(input: $input) {
 				targetUser {
 					id
@@ -250,7 +250,7 @@ export async function blockUser(userId: TwitchUserId): Promise<boolean> {
 
 export async function unblockUser(userId: TwitchUserId): Promise<boolean> {
 	const mutation = gql`
-		mutation TCMUnblockUser($input: UnblockUserInput!) {
+		mutation TEPUnblockUser($input: UnblockUserInput!) {
 			unblockUser(input: $input) {
 				targetUser {
 					id

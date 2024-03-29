@@ -1,5 +1,8 @@
 function init() {
-	return console.debug.bind(console, `[tcm/${import.meta.env.ENTRYPOINT}]`);
+	return console.debug.bind(
+		console,
+		`[eyepatch/${import.meta.env.ENTRYPOINT}]`,
+	);
 }
 
 export default init();

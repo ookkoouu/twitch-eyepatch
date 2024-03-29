@@ -4,7 +4,7 @@ import css from "./sub-mode.gen.css?inline";
 
 (async () => {
 	dlog("Init");
-	const subMode = createCssSwitch("tcm-localsub", css);
+	const subMode = createCssSwitch("eyepatch-localsub", css);
 	SettingStorage.watchItem("subMode", (newValue) => {
 		if (newValue) {
 			dlog("Enabled");

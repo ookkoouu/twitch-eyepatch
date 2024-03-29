@@ -10,7 +10,7 @@ export function BalloonButton({
 	...props
 }: BalloonButtonProps) {
 	return (
-		<div className="tcm-balloon-button" {...props}>
+		<div className="eyepatch-balloon-button" {...props}>
 			<button type="button" onClick={onClick}>
 				{children}
 			</button>

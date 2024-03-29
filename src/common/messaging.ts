@@ -2,7 +2,7 @@ import {
 	defineCustomEventMessaging,
 	defineWindowMessaging,
 } from "@webext-core/messaging/page";
-import { type AppSettings } from "./storage";
+import type { AppSettings } from "./storage";
 
 export type MessageSchema = {
 	getAppSettings<K extends keyof AppSettings>(data: K): AppSettings[K];
@@ -14,6 +14,6 @@ export type MessageSchema = {
 };
 
 export const mainworldMessenger = defineCustomEventMessaging<MessageSchema>({
-	namespace: "tcm-hNwD2gzX",
+	namespace: "eyepatch-hNwD2gzX",
 	// Logger: console,
 });

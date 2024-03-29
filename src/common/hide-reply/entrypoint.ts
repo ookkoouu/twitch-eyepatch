@@ -4,7 +4,7 @@ import css from "./hide-reply.css?inline";
 
 (async () => {
 	dlog("Init");
-	const hideReply = createCssSwitch("tcm-localsub", css);
+	const hideReply = createCssSwitch("eyepatch-localsub", css);
 	SettingStorage.watchItem("hideReply", (newValue) => {
 		if (newValue) {
 			dlog("Enabled");

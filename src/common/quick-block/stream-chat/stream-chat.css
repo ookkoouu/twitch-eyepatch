@@ -1,10 +1,10 @@
-.tcm-chat-line__icon {
+.eyepatch-chat-line__icon {
   background-color: var(--color-background-base);
   border-radius: var(--border-radius-medium);
   box-shadow: var(--shadow-elevation-1);
 }
 
-.tcm-icon-button {
+.eyepatch-icon-button {
   user-select: none;
   border-radius: var(--border-radius-medium);
   height: 3rem;
@@ -19,7 +19,7 @@
   }
 }
 
-.tcm-center {
+.eyepatch-center {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -27,12 +27,12 @@
   width: 100%;
 }
 
-.tcm-icon-button-figure {
+.eyepatch-icon-button-figure {
   height: 2rem;
   width: 2rem;
 }
 
-.tcm-chat-line__icon[data-is-blocked="true"] button {
+.eyepatch-chat-line__icon[data-is-blocked="true"] button {
   color: red !important;
 }
 

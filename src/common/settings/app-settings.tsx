@@ -34,7 +34,7 @@ export default function AppSettings() {
 		<ChakraProvider theme={theme}>
 			<Container maxW="md" minW="xs" p="0">
 				<VStack alignItems="start" p="4" spacing="4">
-					<Heading size="md">Twitch Chat Mask</Heading>
+					<Heading size="md">Twitch Eyepatch</Heading>
 
 					<FormControl alignItems="start">
 						<VStack spacing="1rem">
