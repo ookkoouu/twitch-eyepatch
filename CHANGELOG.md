@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/ookkoouu/twitch-eyepatch/compare/v1.1.0...v1.1.1) (2024-03-29)
+
+
+### Bug Fixes
+
+* apply rename app ([7397f12](https://github.com/ookkoouu/twitch-eyepatch/commit/7397f128a047f9228e86b6ca015aab645b4abf86))
+
 ## [1.1.0](https://github.com/ookkoouu/twitch-chat-mask/compare/v1.0.4...v1.1.0) (2024-02-28)
 
 
