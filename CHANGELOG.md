@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/ookkoouu/twitch-eyepatch/compare/v1.1.1...v1.1.2) (2024-04-10)
+
+
+### Bug Fixes
+
+* run `subMode` and `hideReply` at main world ([90cac83](https://github.com/ookkoouu/twitch-eyepatch/commit/90cac83558d9eb855b4cb3ae33c869d5677e6bd4))
+
 ## [1.1.1](https://github.com/ookkoouu/twitch-eyepatch/compare/v1.1.0...v1.1.1) (2024-03-29)
 
 
