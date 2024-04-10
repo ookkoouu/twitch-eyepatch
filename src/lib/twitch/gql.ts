@@ -5,6 +5,7 @@ import type {
 	TwitchUserName,
 } from "@/common/types";
 import { Failure, type Result, Success } from "@/utils/result";
+import type { PartialDeep } from "@/utils/types";
 import type {
 	ApolloClient,
 	ApolloQueryResult,
@@ -12,83 +13,10 @@ import type {
 	NormalizedCacheObject,
 } from "@apollo/client";
 import { gql } from "@apollo/client";
-import type { GqlUser } from "./gql-types";
+import { getReactRoot, searchReactChildren } from "./elements";
+import type { GqlUser, GqlUserRelationship } from "./gql-types";
 
 type GqlClient = ApolloClient<NormalizedCacheObject>;
-
-type ReactRootContainer = {
-	_internalRoot: {
-		current: ReactNode;
-	};
-};
-
-type ReactNode<Props = Record<string, unknown>> = {
-	alternate: ReactNode | null;
-	child: ReactNode | null;
-	childExpirationTime: number;
-	effectTag: number;
-	elementType: string | null;
-	expirationTime: number;
-	firstEffect: ReactNode | null;
-	index: number;
-	key: string | null;
-	lastEffect: ReactNode | null;
-	memoizedProps: Record<string, unknown> | null;
-	memoizedState: Record<string, unknown> | null;
-	mode: number;
-	nextEffect: ReactNode | null;
-	pendingProps: Props | null;
-	ref: null | HTMLElement;
-	return: ReactNode;
-	sibling: ReactNode | null;
-	stateNode: HTMLElement;
-	tag: number;
-	type: string;
-};
-
-function searchReactChildren<T>(
-	node: ReactNode | undefined,
-	predicate: (node: Partial<ReactNode<T>>) => boolean,
-	maxDepth = 15,
-	depth = 0,
-): ReactNode<T> | undefined {
-	if (node === undefined || depth > maxDepth) {
-		return;
-	}
-	try {
-		if (predicate(node as ReactNode<T>)) {
-			return node as ReactNode<T>;
-		}
-	} catch {
-		return;
-	}
-
-	const { child, sibling } = node;
-	if (child !== null || sibling !== null) {
-		return (
-			searchReactChildren(sibling ?? undefined, predicate, maxDepth, depth) ??
-			searchReactChildren(child ?? undefined, predicate, maxDepth, depth + 1)
-		);
-	}
-}
-
-function getReactRoot(target?: Element): ReactNode | undefined {
-	if (target === undefined) {
-		// biome-ignore lint/style/noParameterAssign: <explanation>
-		target = document.querySelector("#root") ?? undefined;
-	}
-	if (target === undefined) return;
-
-	for (let [key, value] of Object.entries(target)) {
-		if (/^_reactRootContainer/.exec(key)) {
-			value = value as ReactRootContainer;
-			return value._internalRoot.current;
-		}
-		if (/^__reactContainer/.exec(key)) {
-			return value as ReactNode;
-		}
-	}
-}
 
 export function getGqlClient(): GqlClient | undefined {
 	let client: GqlClient | undefined;
@@ -216,6 +144,50 @@ export async function getBlockedUsers(): Promise<Result<TwitchUser[]>> {
 	}
 
 	return new Success(users);
+}
+
+export async function getUserRelationship(
+	userLogin: TwitchUserLogin,
+	channelId: TwitchUserId,
+): Promise<Result<GqlUserRelationship>> {
+	const query = gql`
+		query TEPGetUserRelationship($userLogin: String!, $channelId: ID!) {
+			user(login: $userLogin) {
+				relationship(targetUserID: $channelId) {
+					cumulativeTenure {
+						daysRemaining
+						months
+					}
+					followedAt
+					subscriptionBenefit {
+						gift {
+							isGift
+						}
+						id
+						purchasedWithPrime
+						tier
+					}
+				}
+			}
+		}
+	`;
+
+	const { data, error } = await graphqlQuery<PartialDeep<{ user: GqlUser }>>(
+		query,
+		{
+			userLogin,
+			channelId,
+		},
+	).catch((error) => {
+		return { data: null, error };
+	});
+
+	if (data?.user?.relationship == null) {
+		return new Failure(error);
+	}
+
+	const relationship = data.user.relationship as GqlUserRelationship;
+	return new Success(relationship);
 }
 
 export async function blockUser(userId: TwitchUserId): Promise<boolean> {

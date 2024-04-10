@@ -1,24 +1,35 @@
-import { SettingStorage } from "@/common/storage";
-import { createCssSwitch } from "@/lib/css-switch";
-import css from "./hide-reply.css?inline";
+import domObserver from "@/lib/dom-observer";
+import { Selector } from "@/lib/twitch";
+import { getChatMetadata } from "@/lib/twitch/chat";
+import { mainworldMessenger } from "../messaging";
 
 (async () => {
 	dlog("Init");
-	const hideReply = createCssSwitch("eyepatch-localsub", css);
-	SettingStorage.watchItem("hideReply", (newValue) => {
-		if (newValue) {
-			dlog("Enabled");
-			hideReply.on();
-		} else {
-			dlog("Disabled");
-			hideReply.off();
+
+	let enabled = false;
+	domObserver.added(Selector.LiveChat, (e) => {
+		if (!enabled || !(e instanceof HTMLElement)) return;
+		const chatData = getChatMetadata(e);
+		if (chatData === undefined) return;
+		if (chatData.reply !== undefined) {
+			e.style.display = "none";
 		}
 	});
 
-	await sleep(10); // Wait for storage sync
-	if (SettingStorage.getItem("hideReply")) {
-		hideReply.on();
-	}
+	mainworldMessenger.onMessage("onSettingsChanged", ({ data }) => {
+		if (data.key === "hideReply") {
+			enabled = data.value as boolean;
+			dlog("hideReply enabled:", enabled);
+		}
+	});
 
-	dlog(`Loaded as ${SettingStorage.getItem("hideReply")}`);
+	mainworldMessenger
+		.sendMessage("getAppSettings", "hideReply")
+		.then((b) => {
+			dlog(`hideReply: Loaded as ${b}`);
+			enabled = b as boolean;
+		})
+		.catch(() => undefined);
+
+	document.body.style.backgroundColor = "red";
 })();

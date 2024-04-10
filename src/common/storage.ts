@@ -1,7 +1,7 @@
 import { KVStorage, Storage } from "@okou/webext-storage";
-import { type TwitchUser } from "./types";
+import type { TwitchUser } from "./types";
 
-const DefaultSettings = {
+export const DefaultSettings = {
 	quickBlock: true,
 	subMode: false,
 	followerMode: false,

@@ -1,5 +1,9 @@
 import { mainworldMessenger } from "@/common/messaging";
-import { SettingStorage } from "@/common/storage";
+import {
+	type AppSettings,
+	DefaultSettings,
+	SettingStorage,
+} from "@/common/storage";
 
 export default defineContentScript({
 	matches: ["https://*.twitch.tv/*"],
@@ -12,6 +16,20 @@ export default defineContentScript({
 
 		mainworldMessenger.onMessage("setAppSettings", ({ data }) => {
 			SettingStorage.setItem(data.key, data.value);
+		});
+
+		SettingStorage.watch((nv, ov) => {
+			for (const e of Object.entries(DefaultSettings)) {
+				const [k] = e as [keyof AppSettings, unknown];
+				if (ov === undefined || nv[k] !== ov[k]) {
+					mainworldMessenger
+						.sendMessage("onSettingsChanged", {
+							key: k,
+							value: nv[k],
+						})
+						.catch(() => undefined);
+				}
+			}
 		});
 
 		dlog("Loaded");

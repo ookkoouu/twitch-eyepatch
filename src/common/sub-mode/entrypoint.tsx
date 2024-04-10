@@ -1,24 +1,27 @@
-import { SettingStorage } from "@/common/storage";
 import { createCssSwitch } from "@/lib/css-switch";
+import { mainworldMessenger } from "../messaging";
 import css from "./sub-mode.gen.css?inline";
 
 (async () => {
 	dlog("Init");
+
+	let enabled = false;
+
 	const subMode = createCssSwitch("eyepatch-localsub", css);
-	SettingStorage.watchItem("subMode", (newValue) => {
-		if (newValue) {
-			dlog("Enabled");
-			subMode.on();
-		} else {
-			dlog("Disabled");
-			subMode.off();
+
+	mainworldMessenger.onMessage("onSettingsChanged", ({ data }) => {
+		if (data.key === "subMode") {
+			enabled = data.value as boolean;
+			dlog("subMode enabled:", enabled);
+			subMode.toggle(enabled);
 		}
 	});
 
-	await sleep(10); // Wait for storage sync
-	if (SettingStorage.getItem("subMode")) {
-		subMode.on();
-	}
-
-	dlog(`Loaded as ${SettingStorage.getItem("subMode")}`);
+	mainworldMessenger
+		.sendMessage("getAppSettings", "subMode")
+		.then((b) => {
+			dlog(`subMode: Loaded as ${b}`);
+			enabled = b as boolean;
+		})
+		.catch(() => undefined);
 })();
