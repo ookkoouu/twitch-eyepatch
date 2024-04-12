@@ -26,7 +26,7 @@
 		"@emotion/styled": "^11.11.5",
 		"@okou/webext-storage": "^2.0.4",
 		"@webext-core/messaging": "^1.4.0",
-		"framer-motion": "^11.0.26",
+		"framer-motion": "^11.0.28",
 		"nanoid": "^5.0.7",
 		"react-icons": "^5.0.1"
 	},
