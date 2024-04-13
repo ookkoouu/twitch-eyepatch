@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ookkoouu/twitch-eyepatch/compare/v1.1.2...v1.2.0) (2024-04-13)
+
+
+### Features
+
+* add follower mode ([ff19d90](https://github.com/ookkoouu/twitch-eyepatch/commit/ff19d90e75463b01f6089ea46aa89183029575c5))
+
 ## [1.1.2](https://github.com/ookkoouu/twitch-eyepatch/compare/v1.1.1...v1.1.2) (2024-04-10)
 
 
