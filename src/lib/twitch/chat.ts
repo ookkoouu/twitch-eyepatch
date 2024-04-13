@@ -1,4 +1,4 @@
-import { getReactInstance, searchReactParents } from "./elements";
+import { Selector, getReactInstance, searchReactParents } from "./elements";
 
 export type ChatMessage = {
 	badges: Record<string, string>;
@@ -46,11 +46,27 @@ export type User = {
 	isSubscriber: boolean;
 };
 
-export function getChatMetadata(e: Element) {
+export function getChatMetadata(e: Element): ChatMessage | undefined {
 	const reactNode = searchReactParents<{ message: unknown }>(
 		getReactInstance(e),
 		(n) => n?.pendingProps?.message != null,
 		5,
 	);
 	return (reactNode?.pendingProps?.message as ChatMessage) ?? undefined;
+}
+
+export type ChatContainer = {
+	channelDisplayName: string;
+	channelID: string;
+	channelLogin: string;
+};
+
+export function getCurrentChat(): ChatContainer | undefined {
+	const reactNode = searchReactParents<{ props?: { onSendMessage?: unknown } }>(
+		getReactInstance(
+			document.querySelector(Selector.ChatContainer) ?? undefined,
+		),
+		(n) => n.stateNode?.props?.onSendMessage != null,
+	);
+	return (reactNode?.stateNode.props as ChatContainer) ?? undefined;
 }

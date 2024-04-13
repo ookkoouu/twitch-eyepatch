@@ -1,5 +1,6 @@
 import { BalloonBlockButton } from "@/common/components/balloon-block-button";
-import { TwitchUser, TwitchUserLogin } from "@/common/types";
+import { SettingStorage } from "@/common/localstorage";
+import type { TwitchUser, TwitchUserLogin } from "@/common/types";
 import { createIntegratedDynamicUI } from "@/lib/dynamic-ui-mw";
 import { getUserByLogin, isLoggedInPage } from "@/lib/twitch";
 import { type Root, createRoot } from "react-dom/client";
@@ -20,11 +21,7 @@ async function getUser(): Promise<TwitchUser | undefined> {
 }
 
 (async () => {
-	dlog("Init");
-	if (!isLoggedInPage()) {
-		dlog("Canceled");
-		return;
-	}
+	dlog("profile: init");
 
 	createIntegratedDynamicUI<Root | undefined>({
 		position: "inline",
@@ -33,6 +30,7 @@ async function getUser(): Promise<TwitchUser | undefined> {
 		targetFilter: ["body"],
 
 		onMount(wrapper) {
+			if (!isLoggedInPage() || !SettingStorage.getItem("quickBlock")) return;
 			const root = createRoot(wrapper);
 			getUser().then((user) => {
 				if (user === undefined) {
@@ -49,5 +47,5 @@ async function getUser(): Promise<TwitchUser | undefined> {
 		},
 	});
 
-	dlog("Loaded");
+	dlog("profile: loaded");
 })();

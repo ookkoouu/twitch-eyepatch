@@ -1,4 +1,5 @@
 import { BalloonBlockButton } from "@/common/components/balloon-block-button";
+import { SettingStorage } from "@/common/localstorage";
 import type { TwitchUser, TwitchUserLogin } from "@/common/types";
 import { createIntegratedDynamicUI } from "@/lib/dynamic-ui-mw";
 import { getUserByLogin, isLoggedInPage } from "@/lib/twitch";
@@ -19,11 +20,7 @@ async function getUser(uiHost: HTMLElement): Promise<TwitchUser | undefined> {
 }
 
 (async () => {
-	dlog("Init");
-	if (!isLoggedInPage()) {
-		dlog("Calceled");
-		return;
-	}
+	dlog("vod-chat: init");
 
 	createIntegratedDynamicUI<Root | undefined>({
 		position: "inline",
@@ -31,6 +28,7 @@ async function getUser(uiHost: HTMLElement): Promise<TwitchUser | undefined> {
 		anchor: ".video-chat__message-menu .tw-balloon[role=dialog] > div",
 
 		onMount(wrapper) {
+			if (!isLoggedInPage() || !SettingStorage.getItem("quickBlock")) return;
 			const root = createRoot(wrapper);
 			getUser(wrapper).then((user) => {
 				if (user === undefined) {
@@ -48,5 +46,5 @@ async function getUser(uiHost: HTMLElement): Promise<TwitchUser | undefined> {
 		},
 	});
 
-	dlog("Loaded");
+	dlog("vod-chat: loaded");
 })();

@@ -1,6 +1,6 @@
 import {
 	BalloonButton,
-	BalloonButtonProps,
+	type BalloonButtonProps,
 } from "@/common/components/balloon-button";
 import { useBlock } from "@/common/quick-block/use-block";
 import type { TwitchUser } from "@/common/types";

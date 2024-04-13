@@ -1,5 +1,5 @@
-import { mainworldMessenger } from "@/common/messaging";
-import { type TwitchUserLogin } from "@/common/types";
+import { SettingStorage } from "@/common/localstorage";
+import type { TwitchUserLogin } from "@/common/types";
 import { createIntegratedDynamicUI } from "@/lib/dynamic-ui-mw";
 import { isLoggedInPage } from "@/lib/twitch";
 import { type Root, createRoot } from "react-dom/client";
@@ -17,14 +17,7 @@ function getChatUserLogin(uiHost: HTMLElement): TwitchUserLogin | undefined {
 }
 
 (async () => {
-	dlog("Init");
-	if (
-		!isLoggedInPage() ||
-		!(await mainworldMessenger.sendMessage("getAppSettings", "quickBlock"))
-	) {
-		dlog("Calceled");
-		return;
-	}
+	dlog("stream-chat: init");
 
 	createIntegratedDynamicUI<Root | undefined>({
 		position: "inline",
@@ -32,6 +25,7 @@ function getChatUserLogin(uiHost: HTMLElement): TwitchUserLogin | undefined {
 		anchor: ".chat-line__icons",
 
 		onMount(wrapper) {
+			if (!isLoggedInPage() || !SettingStorage.getItem("quickBlock")) return;
 			const userLogin = getChatUserLogin(wrapper);
 			if (userLogin === undefined) {
 				dlog("failed to get chat");
@@ -47,5 +41,5 @@ function getChatUserLogin(uiHost: HTMLElement): TwitchUserLogin | undefined {
 		},
 	});
 
-	dlog("Loaded");
+	dlog("stream-chat: loaded");
 })();

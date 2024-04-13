@@ -1,35 +1,23 @@
-import { mainworldMessenger } from "@/common/messaging";
-import {
-	type AppSettings,
-	DefaultSettings,
-	SettingStorage,
-} from "@/common/storage";
+import { appMessenger } from "@/common/messaging";
+import { mainworldMessenger } from "@/common/messaging-win";
 
 export default defineContentScript({
-	matches: ["https://*.twitch.tv/*"],
-	runAt: "document_start",
-	main() {
+	matches: [
+		"https://*.twitch.tv/*",
+		"https://twitchtheater.tv/*",
+		"https://multistre.am/*",
+	],
+	runAt: "document_end",
+	async main() {
 		dlog("Init");
-		mainworldMessenger.onMessage("getAppSettings", ({ data }) => {
-			return SettingStorage.getItem(data);
-		});
 
-		mainworldMessenger.onMessage("setAppSettings", ({ data }) => {
-			SettingStorage.setItem(data.key, data.value);
-		});
+		await appMessenger.sendMessage("noticeTab", undefined);
 
-		SettingStorage.watch((nv, ov) => {
-			for (const e of Object.entries(DefaultSettings)) {
-				const [k] = e as [keyof AppSettings, unknown];
-				if (ov === undefined || nv[k] !== ov[k]) {
-					mainworldMessenger
-						.sendMessage("onSettingsChanged", {
-							key: k,
-							value: nv[k],
-						})
-						.catch(() => undefined);
-				}
-			}
+		appMessenger.onMessage("requestCopySettings", async ({ data }) => {
+			await mainworldMessenger
+				.sendMessage("copySettings", data)
+				.catch((err) => dlog("send copy:", err));
+			return true;
 		});
 
 		dlog("Loaded");

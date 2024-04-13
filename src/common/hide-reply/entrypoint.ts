@@ -1,35 +1,30 @@
+import { SettingStorage } from "@/common/localstorage";
 import domObserver from "@/lib/dom-observer";
 import { Selector } from "@/lib/twitch";
 import { getChatMetadata } from "@/lib/twitch/chat";
-import { mainworldMessenger } from "../messaging";
 
 (async () => {
-	dlog("Init");
+	dlog("hideReply: Init");
 
-	let enabled = false;
+	await sleep(10); // wait for storage synced
+	let enabled = SettingStorage.getItem("hideReply");
+
 	domObserver.added(Selector.LiveChat, (e) => {
 		if (!enabled || !(e instanceof HTMLElement)) return;
 		const chatData = getChatMetadata(e);
 		if (chatData === undefined) return;
 		if (chatData.reply !== undefined) {
-			e.style.display = "none";
+			if (import.meta.env.DEV) {
+				e.style.backgroundColor = "red";
+			} else {
+				e.style.display = "none";
+			}
 		}
 	});
 
-	mainworldMessenger.onMessage("onSettingsChanged", ({ data }) => {
-		if (data.key === "hideReply") {
-			enabled = data.value as boolean;
-			dlog("hideReply enabled:", enabled);
-		}
+	SettingStorage.watchItem("hideReply", (nv) => {
+		enabled = nv;
 	});
 
-	mainworldMessenger
-		.sendMessage("getAppSettings", "hideReply")
-		.then((b) => {
-			dlog(`hideReply: Loaded as ${b}`);
-			enabled = b as boolean;
-		})
-		.catch(() => undefined);
-
-	document.body.style.backgroundColor = "red";
+	dlog("hideReply: Loaded as", enabled);
 })();

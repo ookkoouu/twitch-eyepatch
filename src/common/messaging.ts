@@ -1,16 +1,10 @@
-import { defineCustomEventMessaging } from "@webext-core/messaging/page";
+import { defineExtensionMessaging } from "@webext-core/messaging";
 import type { AppSettings } from "./storage";
 
 export type MessageSchema = {
-	getAppSettings<K extends keyof AppSettings>(data: K): AppSettings[K];
-	setAppSettings(data: RecordKV<AppSettings>): void;
-	onSettingsChanged<K extends keyof AppSettings>(data: {
-		key: K;
-		value: AppSettings[K];
-	}): number;
+	copySettings(data: AppSettings): void;
+	requestCopySettings(data: AppSettings): boolean;
+	noticeTab(): void;
 };
 
-export const mainworldMessenger = defineCustomEventMessaging<MessageSchema>({
-	namespace: "eyepatch-hNwD2gzX",
-	// logger: console,
-});
+export const appMessenger = defineExtensionMessaging<MessageSchema>();

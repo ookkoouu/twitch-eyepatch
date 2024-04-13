@@ -1,4 +1,4 @@
-import { type TwitchUser, type TwitchUserLogin } from "@/common/types";
+import type { TwitchUser, TwitchUserLogin } from "@/common/types";
 import {
 	blockUser,
 	getBlockedUsers,

@@ -1,4 +1,5 @@
 import { Failure, type Result } from "@/utils/result";
+import Cookies from "js-cookie";
 import type { TwitchUser, TwitchUserLogin } from "../../common/types";
 import { getUserByLogin } from "./gql";
 
@@ -126,6 +127,7 @@ export const Selector = {
 	VodChat: ".video-chat__message-list-wrapper li",
 	ClipsChat: ".clips-chat-replay>div",
 	ChatBadgeImg: "img.chat-badge",
+	ChatContainer: "section[data-test-selector=chat-room-component-layout]",
 };
 
 export function getViewerCardName() {
@@ -158,18 +160,19 @@ export async function getViewerCardUser(): Promise<Result<TwitchUser>> {
 	return getUserByLogin(login);
 }
 
-export function getCurrentUser(): TwitchUser {
+export function getCurrentUser(): TwitchUser | undefined {
+	const userStr = Cookies.get("twilight-user");
+	if (userStr === undefined) {
+		return;
+	}
 	const { id, login, displayName } = JSON.parse(
-		// @ts-expect-error cookies
-		decodeURIComponent(window.cookies["twilight-user"]),
-	);
+		decodeURIComponent(userStr),
+	) as TwitchUser;
 	return { id, login, displayName };
 }
 
-export function isLoggedInPage() {
-	// @ts-expect-error cookies
-	return isDev() ? true : Boolean(cookies.login);
-	//return Boolean(cookies.login);
+export function isLoggedInPage(): boolean {
+	return isDev() || Boolean(Cookies.get("login"));
 }
 
 export function getLanguage() {

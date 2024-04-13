@@ -68,7 +68,7 @@ export default function AppSettings() {
 								返信隠し
 							</OpSwitch>
 
-							{/* <OpSwitch
+							<OpSwitch
 								checked={followerMode}
 								description="フォローしたばかりのチャットを非表示"
 								onChange={(e) => {
@@ -88,7 +88,7 @@ export default function AppSettings() {
 								}}
 							>
 								必要なフォロー日数
-							</OpNumber> */}
+							</OpNumber>
 						</VStack>
 					</FormControl>
 				</VStack>

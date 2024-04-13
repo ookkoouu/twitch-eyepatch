@@ -146,27 +146,15 @@ export async function getBlockedUsers(): Promise<Result<TwitchUser[]>> {
 	return new Success(users);
 }
 
-export async function getUserRelationship(
+export async function getUserFollowedAt(
 	userLogin: TwitchUserLogin,
 	channelId: TwitchUserId,
 ): Promise<Result<GqlUserRelationship>> {
 	const query = gql`
-		query TEPGetUserRelationship($userLogin: String!, $channelId: ID!) {
+		query TEPGetFollowedAt($userLogin: String!, $channelId: ID!) {
 			user(login: $userLogin) {
 				relationship(targetUserID: $channelId) {
-					cumulativeTenure {
-						daysRemaining
-						months
-					}
 					followedAt
-					subscriptionBenefit {
-						gift {
-							isGift
-						}
-						id
-						purchasedWithPrime
-						tier
-					}
 				}
 			}
 		}
@@ -182,12 +170,12 @@ export async function getUserRelationship(
 		return { data: null, error };
 	});
 
-	if (data?.user?.relationship == null) {
+	const relationship = data?.user?.relationship;
+	if (relationship?.followedAt == null) {
 		return new Failure(error);
 	}
 
-	const relationship = data.user.relationship as GqlUserRelationship;
-	return new Success(relationship);
+	return new Success(relationship as GqlUserRelationship);
 }
 
 export async function blockUser(userId: TwitchUserId): Promise<boolean> {

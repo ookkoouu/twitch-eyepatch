@@ -8,7 +8,7 @@ export default defineConfig({
 	}),
 	manifest: {
 		name: "Twitch Eyepatch",
-		permissions: ["storage"],
+		permissions: ["storage", "tabs"],
 	},
 	zip: {
 		artifactTemplate: "{{browser}}.zip",

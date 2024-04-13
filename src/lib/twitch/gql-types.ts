@@ -14,8 +14,8 @@ export type GqlUser = {
 
 export type GqlUserRelationship = {
 	followedAt: string;
-	subscriptionBenefit: GqlSubscriptionBenefit;
-	subscriptionTenure: GqlSubscriptionTenure;
+	// subscriptionBenefit: GqlSubscriptionBenefit;
+	// subscriptionTenure: GqlSubscriptionTenure;
 };
 export type GqlSubscriptionBenefit = {
 	endsAt: string;
