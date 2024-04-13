@@ -8,5 +8,5 @@ Twitchのチャットから心の平穏を保ちます。
 - [x] Local Sub Mode
 - [x] Multi Viewer Support
 - [x] Hide Reply
+- [x] Local Follower Mode
 - [ ] Local Timeout
-- [ ] Local Follower Mode
