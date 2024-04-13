@@ -2,7 +2,12 @@ import { SettingStorage } from "@/common/localstorage";
 import domObserver from "@/lib/dom-observer";
 import { Selector, getUserFollowedAt, isLoggedInPage } from "@/lib/twitch";
 import { getChatMetadata, getCurrentChat } from "@/lib/twitch/chat";
-import type { TwitchUserId, TwitchUserLogin } from "../types";
+import type {
+	TwitchUser,
+	TwitchUserId,
+	TwitchUserLogin,
+	TwitchUserName,
+} from "../types";
 
 async function isQualifiedFollower(
 	user: TwitchUserLogin,
@@ -23,7 +28,7 @@ function hidden(e: HTMLElement, b: boolean) {
 	if (import.meta.env.DEV) {
 		e.style.backgroundColor = b ? "red" : "";
 	} else {
-		e.hidden = b;
+		e.style.display = b ? "none" : "block";
 	}
 }
 
@@ -33,6 +38,7 @@ function hidden(e: HTMLElement, b: boolean) {
 	await sleep(10); // wait for storage synced
 	let requiredDays = SettingStorage.getItem("requiredFollowDays");
 	let enabled = SettingStorage.getItem("followerMode");
+	const userCache = new Map<TwitchUserId, boolean>();
 
 	if (!isLoggedInPage()) {
 		dlog("follower-mode: skipped");
@@ -43,23 +49,45 @@ function hidden(e: HTMLElement, b: boolean) {
 		if (!enabled || !(e instanceof HTMLElement)) return;
 		hidden(e, true);
 
+		// skip subscriber
+		const chatData = getChatMetadata(e);
+		if (SettingStorage.getItem("subMode") && !chatData?.user.isSubscriber) {
+			// dlog("skip sub!", chatData?.user.userDisplayName);
+			return;
+		}
+
 		const chatCtn = getCurrentChat();
 		if (chatCtn?.channelID == null) return;
 		const chat = getChatMetadata(e);
 		if (chat?.user?.userLogin == null) return;
 
+		const user: TwitchUser = {
+			id: chat.user.userID as TwitchUserId,
+			displayName: chat.user.userDisplayName as TwitchUserName,
+			login: chat.user.userLogin as TwitchUserLogin,
+		};
+
+		const cache = userCache.get(user.id);
+		if (cache !== undefined) {
+			//dlog("cache hit!", user.displayName);
+			hidden(e, cache);
+			return;
+		}
+
 		if (
 			await isQualifiedFollower(
-				chat.user.userLogin as TwitchUserLogin,
+				user.login,
 				chatCtn.channelID as TwitchUserId,
 				requiredDays,
 			)
 		) {
+			userCache.set(user.id, false);
 			hidden(e, false);
 			return;
 		}
 
-		dlog("newbie:", chat.user.userLogin);
+		userCache.set(user.id, true);
+		dlog("newbie:", user.login);
 	});
 
 	SettingStorage.watchItem("followerMode", (nv) => {
