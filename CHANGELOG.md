@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/ookkoouu/twitch-eyepatch/compare/v1.2.0...v1.2.1) (2024-04-13)
+
+
+### Bug Fixes
+
+* cache followers ([40d6d17](https://github.com/ookkoouu/twitch-eyepatch/commit/40d6d178797d8719cd6653bce8442ae38f0bd243))
+
 ## [1.2.0](https://github.com/ookkoouu/twitch-eyepatch/compare/v1.1.2...v1.2.0) (2024-04-13)
 
 
